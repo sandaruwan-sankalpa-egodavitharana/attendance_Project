@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - University of Vocational Technology</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Chart.js for actual charts - placeholder for now, requires dynamic data -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="images/logo.jpg" alt="UNIVOTEC Logo" class="sidebar-logo">
+                <h2>UNIVOTEC</h2>
+                <p>Attendance System</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="classes.html" class="nav-item"><i class="fas fa-chalkboard"></i> Classes</a>
+                <a href="teachers.html" class="nav-item"><i class="fas fa-users"></i> Teachers</a>
+                <a href="students.html" class="nav-item"><i class="fas fa-user-graduate"></i> Students</a>
+                <a href="login.html" class="nav-item logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+        </aside>
+
+        <main class="main-content-dashboard">
+            <header class="dashboard-header">
+                <h1>Dashboard Overview</h1>
+                <div class="user-profile">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Admin User</span> <!-- Placeholder for logged-in user -->
+                </div>
+            </header>
+
+            <section class="stats-cards">
+                <div class="stat-card">
+                    <div class="icon-wrapper bg-blue"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <div class="card-info">
+                        <h3>Total Teachers</h3>
+                        <p>15</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-wrapper bg-green"><i class="fas fa-user-graduate"></i></div>
+                    <div class="card-info">
+                        <h3>Total Students</h3>
+                        <p>250</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-wrapper bg-yellow"><i class="fas fa-book"></i></div>
+                    <div class="card-info">
+                        <h3>Total Classes</h3>
+                        <p>10</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-wrapper bg-red"><i class="fas fa-calendar-check"></i></div>
+                    <div class="card-info">
+                        <h3>Today's Attendance</h3>
+                        <p>92%</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="charts-section">
+                <h2>Attendance Analytics</h2>
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <h3>Monthly Attendance (Students)</h3>
+                        <canvas id="monthlyAttendanceChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Attendance by Class</h3>
+                        <canvas id="classAttendanceChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section class="recent-activity">
+                <h2>Recent Attendance Records</h2>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Class</th>
+                                <th>Student ID</th>
+                                <th>Student Name</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2025-07-20</td>
+                                <td>Software Engineering 3A</td>
+                                <td>S001</td>
+                                <td>John Doe</td>
+                                <td class="status-present">Present</td>
+                            </tr>
+                            <tr>
+                                <td>2025-07-20</td>
+                                <td>Network Technology 2B</td>
+                                <td>S015</td>
+                                <td>Jane Smith</td>
+                                <td class="status-absent">Absent</td>
+                            </tr>
+                            <tr>
+                                <td>2025-07-19</td>
+                                <td>Data Science 1C</td>
+                                <td>S030</td>
+                                <td>Peter Jones</td>
+                                <td class="status-present">Present</td>
+                            </tr>
+                            <tr>
+                                <td>2025-07-19</td>
+                                <td>Software Engineering 3A</td>
+                                <td>S002</td>
+                                <td>Alice Brown</td>
+                                <td class="status-late">Late</td>
+                            </tr>
+                            <tr>
+                                <td>2025-07-18</td>
+                                <td>Network Technology 2B</td>
+                                <td>S016</td>
+                                <td>Bob White</td>
+                                <td class="status-present">Present</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Sample data for charts
+        const monthlyAttendanceData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+            datasets: [{
+                label: 'Average Monthly Attendance (%)',
+                data: [85, 88, 90, 87, 92, 91, 93],
+                backgroundColor: 'rgba(0, 123, 255, 0.6)',
+                borderColor: 'rgba(0, 123, 255, 1)',
+                borderWidth: 1,
+                borderRadius: 5
+            }]
+        };
+
+        const classAttendanceData = {
+            labels: ['SE 3A', 'NT 2B', 'DS 1C', 'EE 4D'],
+            datasets: [{
+                label: 'Attendance Rate (%)',
+                data: [95, 88, 92, 85],
+                backgroundColor: ['#007bff', '#28a745', '#ffc107', '#dc3545'],
+                borderColor: '#fff',
+                borderWidth: 1
+            }]
+        };
+
+        // Chart configuration
+        const monthlyAttendanceConfig = {
+            type: 'bar',
+            data: monthlyAttendanceData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: {
+                            display: true,
+                            text: 'Attendance Percentage'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Month'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                    },
+                    title: {
+                        display: false,
+                        text: 'Monthly Attendance'
+                    }
+                }
+            }
+        };
+
+        const classAttendanceConfig = {
+            type: 'doughnut',
+            data: classAttendanceData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    },
+                    title: {
+                        display: false,
+                        text: 'Attendance by Class'
+                    }
+                }
+            }
+        };
+
+        // Render charts
+        window.onload = function() {
+            const monthlyCtx = document.getElementById('monthlyAttendanceChart').getContext('2d');
+            new Chart(monthlyCtx, monthlyAttendanceConfig);
+
+            const classCtx = document.getElementById('classAttendanceChart').getContext('2d');
+            new Chart(classCtx, classAttendanceConfig);
+        };
+    </script>
+</body>
+</html>

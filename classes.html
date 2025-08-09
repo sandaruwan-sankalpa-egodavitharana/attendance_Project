@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Classes - University of Vocational Technology</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="images/logo.jpg" alt="UNIVOTEC Logo" class="sidebar-logo">
+                <h2>UNIVOTEC</h2>
+                <p>Attendance System</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="classes.html" class="nav-item active"><i class="fas fa-chalkboard"></i> Classes</a>
+                <a href="teachers.html" class="nav-item"><i class="fas fa-users"></i> Teachers</a>
+                <a href="students.html" class="nav-item"><i class="fas fa-user-graduate"></i> Students</a>
+                <a href="login.html" class="nav-item logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+        </aside>
+
+        <main class="main-content-dashboard">
+            <header class="dashboard-header">
+                <h1>Manage Classes</h1>
+                <div class="user-profile">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Admin User</span>
+                </div>
+            </header>
+
+            <section class="data-management-section">
+                <div class="form-card">
+                    <h2>Add New Class</h2>
+                    <form action="connect.php" method="POST" class="data-form">
+                        <input type="hidden" name="action" value="add_class">
+                        <div class="input-group">
+                            <label for="class-name"><i class="fas fa-tag"></i> Class Name</label>
+                            <input type="text" id="class-name" name="class_name" placeholder="e.g., Software Engineering 3A" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="class-code"><i class="fas fa-barcode"></i> Class Code</label>
+                            <input type="text" id="class-code" name="class_code" placeholder="e.g., SE3A" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="teacher-in-charge"><i class="fas fa-user-tie"></i> Teacher In-charge</label>
+                            <input type="text" id="teacher-in-charge" name="teacher_in_charge" placeholder="e.g., Mr. Kamal Perera" required>
+                        </div>
+                        <button type="submit" class="submit-button"><i class="fas fa-plus-circle"></i> Add Class</button>
+                    </form>
+                </div>
+
+                <div class="data-table-card">
+                    <h2>Existing Classes</h2>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Class ID</th>
+                                    <th>Class Name</th>
+                                    <th>Class Code</th>
+                                    <th>Teacher In-charge</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>C001</td>
+                                    <td>Software Engineering 3A</td>
+                                    <td>SE3A</td>
+                                    <td>Mr. Kamal Perera</td>
+                                    <td>
+                                        <button class="action-button edit-button"><i class="fas fa-edit"></i> Edit</button>
+                                        <button class="action-button delete-button"><i class="fas fa-trash-alt"></i> Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>C002</td>
+                                    <td>Network Technology 2B</td>
+                                    <td>NT2B</td>
+                                    <td>Ms. Nimali Fernando</td>
+                                    <td>
+                                        <button class="action-button edit-button"><i class="fas fa-edit"></i> Edit</button>
+                                        <button class="action-button delete-button"><i class="fas fa-trash-alt"></i> Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>C003</td>
+                                    <td>Data Science 1C</td>
+                                    <td>DS1C</td>
+                                    <td>Dr. Sanath Rajapakse</td>
+                                    <td>
+                                        <button class="action-button edit-button"><i class="fas fa-edit"></i> Edit</button>
+                                        <button class="action-button delete-button"><i class="fas fa-trash-alt"></i> Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>C004</td>
+                                    <td>Electrical Engineering 4D</td>
+                                    <td>EE4D</td>
+                                    <td>Prof. Anura Bandara</td>
+                                    <td>
+                                        <button class="action-button edit-button"><i class="fas fa-edit"></i> Edit</button>
+                                        <button class="action-button delete-button"><i class="fas fa-trash-alt"></i> Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

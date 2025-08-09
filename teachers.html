@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Teachers - University of Vocational Technology</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="images/logo.jpg" alt="UNIVOTEC Logo" class="sidebar-logo">
+                <h2>UNIVOTEC</h2>
+                <p>Attendance System</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="classes.html" class="nav-item"><i class="fas fa-chalkboard"></i> Classes</a>
+                <a href="teachers.html" class="nav-item active"><i class="fas fa-users"></i> Teachers</a>
+                <a href="students.html" class="nav-item"><i class="fas fa-user-graduate"></i> Students</a>
+                <a href="login.html" class="nav-item logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+        </aside>
+
+        <main class="main-content-dashboard">
+            <header class="dashboard-header">
+                <h1>Manage Teachers</h1>
+                <div class="user-profile">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Admin User</span>
+                </div>
+            </header>
+
+            <section class="data-management-section">
+                <div class="form-card">
+                    <h2>Add New Teacher</h2>
+                    <form action="connect.php" method="POST" class="data-form">
+                        <input type="hidden" name="action" value="add_teacher">
+                        <div class="input-group">
+                            <label for="teacher-name"><i class="fas fa-user"></i> Teacher Name</label>
+                            <input type="text" id="teacher-name" name="teacher_name" placeholder="e.g., Mr. Kamal Perera" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="teacher-id"><i class="fas fa-id-badge"></i> Teacher ID</label>
+                            <input type="text" id="teacher-id" name="teacher_id" placeholder="e.g., T001" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="teacher-email"><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="teacher-email" name="teacher_email" placeholder="e.g., kamal.p@univote.ac.lk" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="teacher-department"><i class="fas fa-building"></i> Department</label>
+                            <input type="text" id="teacher-department" name="teacher_department" placeholder="e.g., Software Engineering" required>
+                        </div>
+                        <button type="submit" class="submit-button"><i class="fas fa-user-plus"></i> Add Teacher</button>
+                    </form>
+                </div>
+
+                <div class="data-table-card">
+                    <h2>Existing Teachers</h2>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Teacher ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Department</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>T001</td>
+                                    <td>Mr. Kamal Perera</td>
+                                    <td>kamal.p@univote.ac.lk</td>
+                                    <td>Software Engineering</td>
+                                    <td>
+                                        <button class="action-button edit-button"><i class="fas fa-edit"></i> Edit</button>
+                                        <button class="action-button delete-button"><i class="fas fa-trash-alt"></i> Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>T002</td>
+                                    <td>Ms. Nimali Fernando</td>
+                                    <td>nimali.f@univote.ac.lk</td>
+                                    <td>Network Technology</td>
+                                    <td>
+                                        <button class="action-button edit-button"><i class="fas fa-edit"></i> Edit</button>
+                                        <button class="action-button delete-button"><i class="fas fa-trash-alt"></i> Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>T003</td>
+                                    <td>Dr. Sanath Rajapakse</td>
+                                    <td>sanath.r@univote.ac.lk</td>
+                                    <td>Data Science</td>
+                                    <td>
+                                        <button class="action-button edit-button"><i class="fas fa-edit"></i> Edit</button>
+                                        <button class="action-button delete-button"><i class="fas fa-trash-alt"></i> Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>T004</td>
+                                    <td>Prof. Anura Bandara</td>
+                                    <td>anura.b@univote.ac.lk</td>
+                                    <td>Electrical Engineering</td>
+                                    <td>
+                                        <button class="action-button edit-button"><i class="fas fa-edit"></i> Edit</button>
+                                        <button class="action-button delete-button"><i class="fas fa-trash-alt"></i> Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

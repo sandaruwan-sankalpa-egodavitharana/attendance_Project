@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Students - University of Vocational Technology</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="images/logo.jpg" alt="UNIVOTEC Logo" class="sidebar-logo">
+                <h2>UNIVOTEC</h2>
+                <p>Attendance System</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="classes.html" class="nav-item"><i class="fas fa-chalkboard"></i> Classes</a>
+                <a href="teachers.html" class="nav-item"><i class="fas fa-users"></i> Teachers</a>
+                <a href="students.html" class="nav-item active"><i class="fas fa-user-graduate"></i> Students</a>
+                <a href="login.html" class="nav-item logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+        </aside>
+
+        <main class="main-content-dashboard">
+            <header class="dashboard-header">
+                <h1>Manage Students</h1>
+                <div class="user-profile">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Admin User</span>
+                </div>
+            </header>
+
+            <section class="data-management-section">
+                <div class="form-card">
+                    <h2>Add New Student</h2>
+                    <form action="connect.php" method="POST" class="data-form">
+                        <input type="hidden" name="action" value="add_student">
+                        <div class="input-group">
+                            <label for="student-name"><i class="fas fa-user"></i> Student Name</label>
+                            <input type="text" id="student-name" name="student_name" placeholder="e.g., John Doe" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="student-id"><i class="fas fa-id-card"></i> Student ID</label>
+                            <input type="text" id="student-id" name="student_id" placeholder="e.g., S001" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="student-email"><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="student-email" name="student_email" placeholder="e.g., john.doe@univote.ac.lk" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="student-class"><i class="fas fa-chalkboard"></i> Class</label>
+                            <input type="text" id="student-class" name="student_class" placeholder="e.g., Software Engineering 3A" required>
+                        </div>
+                        <button type="submit" class="submit-button"><i class="fas fa-user-plus"></i> Add Student</button>
+                    </form>
+                </div>
+
+                <div class="data-table-card">
+                    <h2>Existing Students</h2>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Student ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Class</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>S001</td>
+                                    <td>John Doe</td>
+                                    <td>john.d@univote.ac.lk</td>
+                                    <td>Software Engineering 3A</td>
+                                    <td>
+                                        <button class="action-button edit-button"><i class="fas fa-edit"></i> Edit</button>
+                                        <button class="action-button delete-button"><i class="fas fa-trash-alt"></i> Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>S002</td>
+                                    <td>Jane Smith</td>
+                                    <td>jane.s@univote.ac.lk</td>
+                                    <td>Network Technology 2B</td>
+                                    <td>
+                                        <button class="action-button edit-button"><i class="fas fa-edit"></i> Edit</button>
+                                        <button class="action-button delete-button"><i class="fas fa-trash-alt"></i> Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>S003</td>
+                                    <td>Peter Jones</td>
+                                    <td>peter.j@univote.ac.lk</td>
+                                    <td>Data Science 1C</td>
+                                    <td>
+                                        <button class="action-button edit-button"><i class="fas fa-edit"></i> Edit</button>
+                                        <button class="action-button delete-button"><i class="fas fa-trash-alt"></i> Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>S004</td>
+                                    <td>Alice Brown</td>
+                                    <td>alice.b@univote.ac.lk</td>
+                                    <td>Electrical Engineering 4D</td>
+                                    <td>
+                                        <button class="action-button edit-button"><i class="fas fa-edit"></i> Edit</button>
+                                        <button class="action-button delete-button"><i class="fas fa-trash-alt"></i> Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
